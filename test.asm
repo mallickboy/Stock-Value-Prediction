@@ -1,0 +1,36 @@
+
+;<Program title>
+
+jmp start
+
+;data
+
+
+;code
+start: nop
+LXI H,9000H ;
+MOV C,M;
+DCR C;AS C= N-1 COMPARISON NEEDED
+INX H; HL= 9001H
+
+LOOP: MOV A,M ;
+INX H ; H++
+CMP M ; A-M OR IF A<M , CARRY =1
+JC SKIP 
+JZ SKIP 
+;NOW A>M SWAP
+MOV D,M
+MOV M,A
+DCX H; H-- PREV POS
+MOV M,D
+INX H;H++ CURRENT POS
+MVI E ,01H ; FLAG E=01
+
+SKIP: DCR C ; C--
+JNZ LOOP ; IF C !=0 RUN LOOP
+MOV A,E;
+CPI 01H; E-01H 
+MVI E,00H;
+JZ start ;
+
+hlt

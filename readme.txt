@@ -1,0 +1,5 @@
+Current market price predictor of Indian stocks :
+
+ I have manually collected data of 593 stocks ,took 80% as training set & then tried to find correlations,then used scatter_matrix to observe the data .Then observed the correlation matrix of CMP (Current Market Price) ,then splitted data in features & label (label is CMP) .As there was many empry cells in Div Yld ,Qtr sales var % and some others cells ,I have used SimpleImputer to fill the blanks using median value. Then I have tested & evaluated some sklearn models (LinearRegression,DecisionTreeRegressor & RandomForestRegressor) with the data and selected RandomForestRegressor for giving lowest stabdard deviation of 654.7 .
+
+ After selecting the model I have stored that & tested using rest 20% test_set  & printed the predicted value & its original CMP to manually compare .It gave rmse of 854 & the predicted price & original CMP was quite different for most of the predictions & realised I have to learn more about collecting data & ML.
